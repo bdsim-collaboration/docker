@@ -4,10 +4,10 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /tmp
 
-RUN yum -y install git make \
-    gcc gcc-c++ gcc-gfortran \
-    xerces-c-devel zlib-devel wget \
-    openssl-devel bison flex boost-devel
+RUN yum -y install git make 
+#    gcc gcc-c++ gcc-gfortran \
+#    xerces-c-devel zlib-devel wget \
+#    openssl-devel bison flex boost-devel
 
 # X11 
 RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
