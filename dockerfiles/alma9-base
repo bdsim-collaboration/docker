@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /tmp
 
-RUN yum -y insall git make 
+RUN yum -y install git make wget
 #    gcc gcc-c++ gcc-gfortran \
 #    xerces-c-devel zlib-devel wget \
 #    openssl-devel bison flex boost-devel
