@@ -13,6 +13,13 @@ jobs:
     - name: Build the centos7-base Docker image
       run: docker build . --file dockerfiles/centos7-base --tag centos7-base:$(date +%s)
 
+  build_centos8_base:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the centos7-base Docker image
+      run: docker build . --file dockerfiles/centos7-base --tag centos8-base:$(date +%s)
+
   build_centos7_g4-10-7:
     needs: [build_centos7_base]
     runs-on: ubuntu-latest
