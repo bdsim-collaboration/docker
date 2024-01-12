@@ -1,0 +1,32 @@
+FROM alma:9
+
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /tmp
+
+RUN yum -y install git make \
+    gcc gcc-c++ gcc-gfortran \
+    xerces-c-devel zlib-devel wget \
+    openssl-devel bison flex boost-devel
+
+# X11 
+RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
+    libXpm-devel libXft-devel libXext-devel libXmu-devel 
+
+# OpenGL (EGL GLX egl gl glu glx opengl xmesa)
+RUN yum -y install freeglut-devel
+
+# Python
+RUN yum -y install python3-pip python3
+
+# Qt5 
+RUN yum -y install qt5-qtbase-devel 
+
+# ROOT
+RUN yum -y install root python36-root
+
+# HEPMC3
+RUN yum -y install HepMC3-rootIO-devel
+
+# turn on the useful compiler by default
+RUN echo 'source scl_source enable devtoolset-7' >> ~/.bashrc
