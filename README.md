@@ -1,2 +1,2 @@
 # docker
-docker build and test environments for BDSIM
+Docker build and test environments for BDSIM
