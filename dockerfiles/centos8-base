@@ -4,6 +4,9 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /tmp
 
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*;
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://linuxsoft.cern.ch/|g' /etc/yum.repos.d/CentOS-Linux-*
+
 RUN yum -y install epel-release git make \
     gcc gcc-c++ gcc-gfortran \
     xerces-c-devel zlib-devel wget \
