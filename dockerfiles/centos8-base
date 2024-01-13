@@ -7,14 +7,13 @@ WORKDIR /tmp
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 
-RUN yum -y install epel-release
-#git make \
+RUN yum -y install epel-release git make 
 #    gcc gcc-c++ gcc-gfortran \
 #    xerces-c-devel zlib-devel wget \
 #    openssl-devel bison flex boost-devel
 
 # Modern compilers 
-RUN yum -y install centos-release-scl && yum -y install devtoolset-7
+#RUN yum -y install centos-release-scl && yum -y install devtoolset-7
 
 # CMake (3.22.2 from source)
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2.tar.gz && \
