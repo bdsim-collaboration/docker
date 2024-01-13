@@ -30,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      name: Build the ubuntu20-base Docker image
-      uses: actions/checkout@v3
+      - name: Build the ubuntu20-base Docker image
+      - uses: actions/checkout@v3
       - run: docker build . --file dockerfiles/ubuntu20-base --tag ubuntu20-base:$(date +%s)
 
 #  build_ubuntu22_base:
