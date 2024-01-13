@@ -7,8 +7,8 @@ WORKDIR /tmp
 RUN yum -y install epel-release
 RUN yum -y install epel-next-release
 
-RUN yum -y install git make wget
-#    gcc gcc-c++ gcc-gfortran \
+RUN yum -y install git make wget \
+    gcc gcc-c++ gcc-gfortran
 #    xerces-c-devel zlib-devel wget \
 #    openssl-devel bison flex boost-devel
 
