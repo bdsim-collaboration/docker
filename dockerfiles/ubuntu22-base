@@ -22,3 +22,8 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui w
 
 # python packages
 RUN pip3 install scipy matplotlib numpy ipython
+
+# ROOT
+RUN wget https://root.cern/download/root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
+RUN tar -xzvf root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
+RUN echo 'source root/bin/thisroot.sh' >> ~/.bashrc
