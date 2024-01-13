@@ -14,7 +14,7 @@ jobs:
 
       - shell: bash
         env:
-          SUPER_SECRET: ${{ secrets.BOOGERT_DOCKER_USER_NAME }}
+          SUPER_SECRET: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
         run: |
           echo $SUPER_SECRET
 
