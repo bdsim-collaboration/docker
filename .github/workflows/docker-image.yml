@@ -16,7 +16,6 @@ jobs:
       	run: |
           echo 'The GitHub Action Secret will be masked:  '
           echo ${{ secrets.BOOGERT_DOCKER_USERNAME }}
-	  echo "$BOOGERT_DOCKER_USERNAME"
           echo 'Testing secret if its masked: '
           printenv
 
