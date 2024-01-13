@@ -30,34 +30,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Build the ubuntu20-base Docker image
-      run: docker build . --file dockerfiles/ubuntu20-base --tag ubuntu20-base:$(date +%s)
+      uses: actions/checkout@v3
+      name: Build the ubuntu20-base Docker image
+      run: |
+        docker build . --file dockerfiles/ubuntu20-base --tag ubuntu20-base:$(date +%s)
 
-  build_ubuntu22_base:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Log into docker
-      - uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-        with:
-          - username: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
-          - password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
-
-      - name: Extract metadata (tags, labels) for Docker
-      - uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-      - id: meta
-        with:
-          - images: sboogert/ubuntu22-base:$(date +%s)
-
-      - name: Build and push Docker image
-      - uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          - context: .
-          - file: ./dockerfiles/ubuntu22-base
-          - push: true
-          - tags: ${{ steps.meta.outputs.tags }}
-          - labels: ${{ steps.meta.outputs.labels }}
+#  build_ubuntu22_base:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      name: Log into docker
+#      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+#      with:
+#        username: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
+#        password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
+#
+#      name: Extract metadata (tags, labels) for Docker
+#      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+#      id: meta
+#        with:
+#          - images: sboogert/ubuntu22-base:$(date +%s)
+#
+#      - name: Build and push Docker image
+#      - uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+#        with:
+#          - context: .
+#          - file: ./dockerfiles/ubuntu22-base
+#          - push: true
+#          - tags: ${{ steps.meta.outputs.tags }}
+#          - labels: ${{ steps.meta.outputs.labels }}
 
 #  build_centos7_g4-10-7:
 #    needs: [build_centos7_base]
