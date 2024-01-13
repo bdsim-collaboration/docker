@@ -8,9 +8,9 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 
 RUN yum -y install epel-release git make cmake \
-                   gcc gcc-c++ gcc-gfortran 
-#		   xerces-c-devel zlib-devel wget \
-#		   openssl-devel bison flex boost-devel
+                   gcc gcc-c++ gcc-gfortran  \
+		   xerces-c-devel zlib-devel \
+		   openssl-devel bison flex boost-devel
 
 # Modern compilers 
 #RUN yum -y install centos-release-scl && yum -y install devtoolset-7
