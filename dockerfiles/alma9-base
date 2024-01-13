@@ -4,7 +4,6 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /tmp
 
-RUN dnf config-manager --set-enabled crb
 RUN dnf install epel-release
 RUN dnf install epel-next-release
 
