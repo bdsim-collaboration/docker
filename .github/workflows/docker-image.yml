@@ -23,8 +23,10 @@ jobs:
         env:
           MY_SECRET: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
         if: env.MY_SECRET != null
-        run: echo "have username"
-
+          run: echo "have username"
+	else:
+	  run: echo "don't have username"
+	  
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
