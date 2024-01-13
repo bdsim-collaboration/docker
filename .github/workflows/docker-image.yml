@@ -47,5 +47,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the centos7-g4.10.7 Docker image
-      run: docker build . --file dockerfiles/centos7_g4.10.7 --tag centos7-g4.10.7:$(date +%s)
+      run: docker build . --file dockerfiles/centos7-g4.10.7 --tag centos7-g4.10.7:$(date +%s)
 
