@@ -27,6 +27,20 @@ jobs:
     - name: Build the alma9-base Docker image
       run: docker build . --file dockerfiles/alma9-base --tag alma9-base:$(date +%s)
 
+  build_ubuntu20_base:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the ubuntu20-base Docker image
+      run: docker build . --file dockerfiles/ubuntu20-base --tag ubuntu20-base:$(date +%s)
+
+  build_ubuntu22_base:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the ubuntu22-base Docker image
+      run: docker build . --file dockerfiles/ubuntu22-base --tag ubuntu22-base:$(date +%s)
+
   build_centos7_g4-10-7:
     needs: [build_centos7_base]
     runs-on: ubuntu-latest
