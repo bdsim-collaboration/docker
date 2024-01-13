@@ -14,9 +14,9 @@ jobs:
 
       - shell: bash
         env:
-          SUPER_SECRET: ${{ secrets.boogert_docker_username }}
+          SUPER_SECRET: ${{ secrets.BOOGERT_DOCKER_USER_NAME }}
         run: |
-          echo "$SUPER_SECRET"
+          echo $SUPER_SECRET
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
