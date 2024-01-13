@@ -45,7 +45,7 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
       - uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        id: meta
+      - id: meta
         with:
           - images: sboogert/ubuntu22-base:$(date +%s)
 
