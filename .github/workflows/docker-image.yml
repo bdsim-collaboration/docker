@@ -13,8 +13,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test Env
-      	env:
-	  BOOGERT_DOCKER_USERNAME: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
       	run: |
           echo 'The GitHub Action Secret will be masked:  '
           echo ${{ secrets.BOOGERT_DOCKER_USERNAME }}
