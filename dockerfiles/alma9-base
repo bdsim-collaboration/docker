@@ -8,8 +8,8 @@ RUN yum -y install epel-release
 RUN yum -y install epel-next-release
 
 RUN yum -y install git make wget \
-    gcc gcc-c++ gcc-gfortran
-#    xerces-c-devel zlib-devel wget \
+    gcc gcc-c++ gcc-gfortran \
+    xerces-c-devel zlib-devel
 #    openssl-devel bison flex boost-devel
 
 # X11 
@@ -23,7 +23,10 @@ RUN yum -y install freeglut-devel
 RUN yum -y install python3-pip python3
 
 # Qt5 
-RUN yum -y install qt5-qtbase-devel 
+RUN yum -y install qt5-qtbase-devel
+
+# Qt6
+RUN yum -y install qt6-qtbase-devel 
 
 # ROOT
 # RUN yum -y install root 
