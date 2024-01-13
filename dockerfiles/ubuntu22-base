@@ -12,9 +12,12 @@ RUN apt-get update
 # build essentials 
 RUN DEBIAN_FRONTEND="noninteractive" apt -y install build-essential
 
+RUN DEBIAN_FRONTEND="noninteractive" apt-cache search python qt5 qt6
+
 # required packages
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget xorg-dev freeglut3-dev qt5-default python2.7-dev libssl-dev liblz4-dev git \
-    libxerces-c-dev bison flex python3-pip python-tk x11vnc xvfb fvwm
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget \
+         xorg-dev freeglut3-dev qt5-default python2.7-dev libssl-dev liblz4-dev git \
+         libxerces-c-dev bison flex python3-pip python-tk x11vnc xvfb fvwm
 
 # python packages
 RUN pip3 install scipy matplotlib numpy ipython
