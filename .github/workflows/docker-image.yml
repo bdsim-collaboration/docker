@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   pull_request:
-    - branches: [ "main" ]
+    branches: [ "main" ]
 
 jobs:
 #  build_centos7_base:
