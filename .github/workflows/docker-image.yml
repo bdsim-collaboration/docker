@@ -12,11 +12,19 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.boogert_docker_username }}
+        run: |
+          echo "$SUPER_SECRET"
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.boogert_docker_username }}
           password: ${{ secrets.boogert_docker_password }}
+
+
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
