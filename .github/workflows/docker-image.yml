@@ -5,65 +5,30 @@ on:
     branches: [ "main" ]
 
 jobs:
-#  build_centos7_base:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v3
-#    - name: Build the centos7-base Docker image
-#    run: docker build . --file dockerfiles/centos7-base --tag centos7-base:$(date +%s)
-#
-#  build_centos8_base:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Build the centos8-base Docker image
-#    run: docker build . --file dockerfiles/centos8-base --tag centos8-base:$(date +%s)
-#
-#  build_alma9_base:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v3
-#    - name: Build the alma9-base Docker image
-#    run: docker build . --file dockerfiles/alma9-base --tag alma9-base:$(date +%s)
-#
-  build_ubuntu20_base:
+  ubuntu20_base:
+    name: Push Ubuntu20 docker image to Docker Hub
     runs-on: ubuntu-latest
-
     steps:
-      - name: Build the ubuntu20-base Docker image
-      - uses: actions/checkout@v3
-      - run: docker build . --file dockerfiles/ubuntu20-base --tag ubuntu20-base:$(date +%s)
+      - name: Check out the repo
+        uses: actions/checkout@v4
 
-#  build_ubuntu22_base:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      name: Log into docker
-#      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-#      with:
-#        username: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
-#        password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
-#
-#      name: Extract metadata (tags, labels) for Docker
-#      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-#      id: meta
-#        with:
-#          - images: sboogert/ubuntu22-base:$(date +%s)
-#
-#      - name: Build and push Docker image
-#      - uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-#        with:
-#          - context: .
-#          - file: ./dockerfiles/ubuntu22-base
-#          - push: true
-#          - tags: ${{ steps.meta.outputs.tags }}
-#          - labels: ${{ steps.meta.outputs.labels }}
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.BOOGERT_DOCKER_USERNAME }}
+          password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
 
-#  build_centos7_g4-10-7:
-#    needs: [build_centos7_base]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Build the centos7-g4.10.7 Docker image
-#    run: docker build . --file dockerfiles/centos7-g4.10.7 --tag centos7-g4.10.7:$(date +%s)
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: sboogert/ubuntu22-base:$(date +%s)
 
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./dockerfiles/ubuntu22-base
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
