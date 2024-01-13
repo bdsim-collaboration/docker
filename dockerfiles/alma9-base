@@ -36,4 +36,3 @@ RUN echo 'source root/bin/thisroot.sh' >> ~/.bashrc
     
 # HEPMC3
 RUN yum -y install HepMC3-rootIO-devel
-
