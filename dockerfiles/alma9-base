@@ -9,7 +9,7 @@ RUN yum -y install epel-next-release
 
 RUN yum -y install git make wget \
     gcc gcc-c++ gcc-gfortran \
-    xerces-c-devel zlib-devel
+    xerces-c-devel zlib-devel \
     openssl-devel bison flex boost-devel
 
 # X11 
