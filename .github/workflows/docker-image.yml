@@ -36,7 +36,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   ubuntu22-g4-10-7:
-    needs: [ubuntu22]  
+    needs: [ubuntu20_base]  
     name: Push Ubuntu20 g4.10.7 docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
