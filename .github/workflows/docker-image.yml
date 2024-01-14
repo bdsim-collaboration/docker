@@ -12,6 +12,10 @@ jobs:
     name: Push Ubuntu20 docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
+      - name: Check username
+        run: |
+          echo ${{ env.BOOGERT_DOCKER_USERNAME }}
+
       - name: Check out the repo
         uses: actions/checkout@v4
 
