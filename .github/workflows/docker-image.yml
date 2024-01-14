@@ -363,7 +363,7 @@ jobs:
 
   alma9-g4-11-0:
     needs: [alma9_base]
-    name: Push Ubuntu22 g4.11.0 docker image to Docker Hub
+    name: Push Alma9 g4.11.0 docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -392,7 +392,7 @@ jobs:
 
   alma9-g4-11-1:
     needs: [alma9_base]
-    name: Push Ubuntu22 g4.11.1 docker image to Docker Hub
+    name: Push Alma9 g4.11.1 docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
