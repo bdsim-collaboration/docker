@@ -8,6 +8,38 @@ on:
 
 jobs:
 
+  alma9_base:
+    name: Push Alma9 docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check username
+        run: |
+          echo ${{ vars.BOOGERT_DOCKER_USERNAME }}
+
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
+          password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: sboogert/alma9-base
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./dockerfiles/alma9-base
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
   ubuntu20_base:
     name: Push Ubuntu20 docker image to Docker Hub
     runs-on: ubuntu-latest
