@@ -1,0 +1,39 @@
+FROM centos:8
+
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /tmp
+
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
+RUN yum -y install epel-release
+RUN yum -y install git make cmake wget \
+                   gcc gcc-c++ gcc-gfortran  \
+		   xerces-c-devel zlib-devel \
+		   openssl-devel bison flex boost-devel
+
+# Modern compilers 
+#RUN yum -y install centos-release-scl && yum -y install devtoolset-7
+
+# X11 
+RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
+    libXpm-devel libXft-devel libXext-devel libXmu-devel 
+
+# OpenGL (EGL GLX egl gl glu glx opengl xmesa)
+RUN yum -y install freeglut-devel
+
+# Python
+RUN yum -y install python3-pip python3
+
+# Qt5 
+RUN yum -y install qt5-qtbase-devel 
+
+# ROOT
+RUN wget https://root.cern/download/root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz
+RUN tar -xzvf root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz
+RUN echo 'source root/bin/thisroot.sh' >> ~/.bashrc
+	
+# HEPMC3
+#RUN yum -y install HepMC3-rootIO-devel
+
