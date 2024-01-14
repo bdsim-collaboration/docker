@@ -1,7 +1,7 @@
 FROM sboogert/ubuntu22-base
 
 # CLHEP
-RUN wget https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.4.0.tgz && \
+RUN wget https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.6.2.tgz && \
     tar -xf clhep-2.4.6.2.tgz && rm -rf clhep-2.4.6.2.tgz && \
     mkdir clhep-build && cd clhep-build && cmake ../2.4.6.2/CLHEP/ && \
     make -j10 && make install && cd ../ && rm -rfv 2.4.6.2 clhep-build
