@@ -13,9 +13,6 @@ RUN yum -y install git make cmake wget \
 		   xerces-c-devel zlib-devel \
 		   openssl-devel bison flex boost-devel
 
-# Modern compilers 
-#RUN yum -y install centos-release-scl && yum -y install devtoolset-7
-
 # X11 
 RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
     libXpm-devel libXft-devel libXext-devel libXmu-devel 
