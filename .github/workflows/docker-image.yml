@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Check username
         run: |
-          echo ${{ env.BOOGERT_DOCKER_USERNAME }}
+          echo ${{ vars.BOOGERT_DOCKER_USERNAME }}
 
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          Username: ${{ env.BOOGERT_DOCKER_USERNAME }}
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
           password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
@@ -50,7 +50,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          Username: ${{ env.BOOGERT_DOCKER_USERNAME }}
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
           password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
@@ -79,7 +79,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          Username: ${{ env.BOOGERT_DOCKER_USERNAME }}
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
           password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
@@ -108,7 +108,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          Username: ${{ env.BOOGERT_DOCKER_USERNAME }}
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
           password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
 
       - name: Extract metadata (tags, labels) for Docker
