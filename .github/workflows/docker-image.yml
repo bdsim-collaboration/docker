@@ -484,7 +484,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   centos7-g4-11-2:
-    needs: [centos8_base]
+    needs: [centos7_base]
     name: Push Centos7 g4.11.2 docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
