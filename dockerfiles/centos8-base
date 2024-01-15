@@ -15,7 +15,7 @@ RUN yum -y install git make cmake wget \
 
 # X11 
 RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
-    libXpm-devel libXft-devel libXext-devel libXmu-devel 
+    libXpm-devel libXft-devel libXext-devel libXmu-devel gsl-devel
 
 # OpenGL (EGL GLX egl gl glu glx opengl xmesa)
 RUN yum -y install freeglut-devel
