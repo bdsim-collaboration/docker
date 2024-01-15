@@ -2,7 +2,6 @@ FROM ubuntu:jammy
 
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
 
-CMD ["/bin/bash"]
 SHELL ["/bin/bash", "-c"]
 
 WORKDIR /tmp
