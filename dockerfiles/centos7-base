@@ -45,6 +45,8 @@ RUN mkdir root-build &&\
     cmake ../root-6.30.02 -DCMAKE_INSTALL_PREFIX=/tmp/root &&\
     make -j4 &&\
     make install &&\
+    cd ../ &&\
+    rm -rfv root-build
     echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
 
 # HEPMC3
