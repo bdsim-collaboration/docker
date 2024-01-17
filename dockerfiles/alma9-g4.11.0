@@ -4,7 +4,7 @@ FROM sboogert/alma9-base
 RUN wget https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.1.tgz && \
     tar -xf clhep-2.4.5.1.tgz && rm -rf clhep-2.4.5.1.tgz && \
     mkdir clhep-build && cd clhep-build && cmake ../2.4.5.1/CLHEP/ && \
-    make -j`$(nproc --all)` && make install && cd ../ && rm -rfv 2.4.5.1 clhep-build
+    make -j4 && make install && cd ../ && rm -rfv 2.4.5.1 clhep-build
 
 # Geant4
 RUN git clone https://gitlab.cern.ch/geant4/geant4.git &&\
