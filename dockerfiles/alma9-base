@@ -1,6 +1,7 @@
 FROM almalinux:9
 
 SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/bin/bash"]
 
 WORKDIR /tmp
 
