@@ -1,6 +1,7 @@
 FROM centos:7
 
 SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/bin/bash"]
 
 WORKDIR /tmp
 

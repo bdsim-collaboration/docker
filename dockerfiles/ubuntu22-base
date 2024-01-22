@@ -3,6 +3,7 @@ FROM ubuntu:jammy
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
 
 SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/bin/bash"]
 
 WORKDIR /tmp
 
