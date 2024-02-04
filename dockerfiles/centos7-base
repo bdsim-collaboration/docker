@@ -11,14 +11,14 @@ RUN yum -y install epel-release git make \
     openssl-devel bison flex boost-devel
 
 # Modern compilers 
-RUN yum -y install centos-release-scl && yum -y install devtoolset-9
+RUN yum -y install centos-release-scl && yum -y install devtoolset-11
 
 # CMake (3.22.2 from source)
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2.tar.gz && \
     tar zxf cmake-3.22.2.tar.gz && \
     rm -rfv cmake-3.22.2.tar.gz && \
     cd cmake-3.22.2 && \
-    source scl_source enable devtoolset-9 &&\
+    source scl_source enable devtoolset-11 &&\
     ./bootstrap && \
     make -j10 install && \
     cd ../ && \
@@ -42,7 +42,7 @@ RUN wget https://root.cern/download/root_v6.30.02.source.tar.gz
 RUN tar -zxvf root_v6.30.02.source.tar.gz
 RUN mkdir root-build &&\
     cd root-build &&\
-    source scl_source enable devtoolset-9 &&\
+    source scl_source enable devtoolset-11 &&\
     cmake ../root-6.30.02 -DCMAKE_INSTALL_PREFIX=/tmp/root &&\
     make -j4 &&\
     make install &&\
@@ -54,4 +54,4 @@ RUN mkdir root-build &&\
 RUN yum -y install HepMC3-rootIO-devel
 
 # turn on the useful compiler by default
-RUN echo 'source scl_source enable devtoolset-9' >> ~/.bashrc
+RUN echo 'source scl_source enable devtoolset-11' >> ~/.bashrc
