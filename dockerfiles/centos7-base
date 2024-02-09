@@ -43,7 +43,7 @@ RUN tar -zxvf root_v6.30.02.source.tar.gz
 RUN mkdir root-build &&\
     cd root-build &&\
     source scl_source enable devtoolset-11 &&\
-    cmake ../root-6.30.02 -DCMAKE_INSTALL_PREFIX=/tmp/root &&\
+    cmake ../root-6.30.02 -DCMAKE_INSTALL_PREFIX=/tmp/root -DCMAKE_CXX_STANDARD=17 &&\
     make -j4 &&\
     make install &&\
     cd ../ &&\
