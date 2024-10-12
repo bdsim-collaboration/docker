@@ -2,8 +2,6 @@ name: Build docker Images
 
 on:
   workflow_dispatch:
-  push:
-  pull_request:
   release:
 
 jobs:
