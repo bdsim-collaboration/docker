@@ -18,11 +18,11 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-cache search python qt5 qt6
 # required packages
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget \
          xorg-dev freeglut3-dev qtbase5-dev qt5-qmake qt6-base-dev \
-	 python-is-python3 libssl-dev liblz4-dev git \
+	 python libssl-dev liblz4-dev git \
          libxerces-c-dev bison flex python3-pip x11vnc xvfb fvwm
 
 # python packages
-RUN pip3 install scipy matplotlib numpy ipython
+RUN pipx install scipy matplotlib numpy ipython
 
 # ROOT
 RUN wget https://root.cern/download/root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
