@@ -26,6 +26,6 @@ RUN python3 -m venv /tmp/venv-bdsim
 RUN /tmp/venv-bdsim/bin/pip install scipy matplotlib numpy ipython 
 
 # ROOT
-RUN wget https://root.cern/download/root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
-RUN tar -xzvf root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
+RUN wget https://root.cern/download/root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
+RUN tar -xzvf root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
 RUN echo 'source root/bin/thisroot.sh' >> ~/.bashrc
