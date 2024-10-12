@@ -3,9 +3,6 @@ name: Build docker Images
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-      - "releases/**"
   pull_request:
   release:
 
