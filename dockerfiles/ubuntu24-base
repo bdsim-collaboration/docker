@@ -1,4 +1,4 @@
-FROM ubuntu:numbat
+FROM ubuntu:noble
 
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
 
