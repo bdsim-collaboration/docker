@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-cache search python qt5 qt6
 # required packages
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget \
          xorg-dev freeglut3-dev qtbase5-dev qt5-qmake qt6-base-dev \
-	 python3 python3-pip python3-venvlibssl-dev liblz4-dev git \
+	 python3 python3-pip python3-venv libssl-dev liblz4-dev git \
          libxerces-c-dev bison flex x11vnc xvfb fvwm
 
 # python packages
