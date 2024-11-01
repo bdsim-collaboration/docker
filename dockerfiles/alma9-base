@@ -33,7 +33,7 @@ RUN yum -y install qt6-qtbase-devel
 RUN wget https://root.cern/download/root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz
 RUN tar -xzvf root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz
 RUN rm -rfv root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz
-RUN echo 'source root/bin/thisroot.sh' >> ~/.bashrc
+RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
     
 # HEPMC3
 RUN yum -y install HepMC3-rootIO-devel
