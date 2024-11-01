@@ -28,10 +28,11 @@ RUN yum -y install python3-pip python3
 RUN yum -y install qt5-qtbase-devel 
 
 # ROOT
-RUN wget https://root.cern/download/root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz
-RUN tar -xzvf root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz
-RUN rm -rf root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz
-RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
+RUN yum -y install which \
+    wget https://root.cern/download/root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz \
+    tar -xzvf root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz \
+    rm -rf root_v6.28.10.Linux-centos8-x86_64-gcc8.5.tar.gz \
+    echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
 	
 # HEPMC3
 #RUN yum -y install HepMC3-rootIO-devel
