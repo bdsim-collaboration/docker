@@ -33,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu20-base
+          images: bdsim/ubuntu20-base
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -61,7 +61,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu22-base
+          images: bdsim/ubuntu22-base
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -89,7 +89,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu24-base
+          images: bdsim/ubuntu24-base
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -121,7 +121,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/centos8-base
+          images: bdsim/centos8-base
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -153,7 +153,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-base
+          images: bdsim/alma9-base
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -182,7 +182,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu20-g4.10.7
+          images: bdsim/ubuntu20-g4.10.7
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -211,7 +211,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu20-g4.11.0
+          images: bdsim/ubuntu20-g4.11.0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -240,7 +240,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu20-g4.11.1
+          images: bdsim/ubuntu20-g4.11.1
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -269,7 +269,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu20-g4.11.2
+          images: bdsim/ubuntu20-g4.11.2
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -298,7 +298,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu22-g4.10.7
+          images: bdsim/ubuntu22-g4.10.7
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -327,7 +327,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu22-g4.11.0
+          images: bdsim/ubuntu22-g4.11.0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -356,7 +356,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu22-g4.11.1
+          images: bdsim/ubuntu22-g4.11.1
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -385,7 +385,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu22-g4.11.2
+          images: bdsim/ubuntu22-g4.11.2
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -414,7 +414,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu24-g4.10.7
+          images: bdsim/ubuntu24-g4.10.7
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -443,7 +443,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu24-g4.11.0
+          images: bdsim/ubuntu24-g4.11.0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -472,7 +472,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu24-g4.11.1
+          images: bdsim/ubuntu24-g4.11.1
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -501,7 +501,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/ubuntu24-g4.11.2
+          images: bdsim/ubuntu24-g4.11.2
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -530,7 +530,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/centos8-g4.10.7
+          images: bdsim/centos8-g4.10.7
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -559,7 +559,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/centos8-g4.11.0
+          images: bdsim/centos8-g4.11.0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -588,7 +588,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/centos8-g4.11.1
+          images: bdsim/centos8-g4.11.1
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -617,7 +617,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/centos8-g4.11.2
+          images: bdsim/centos8-g4.11.2
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -646,7 +646,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-g4.10.4
+          images: bdsim/alma9-g4.10.4
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -675,7 +675,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-g4.10.7
+          images: bdsim/alma9-g4.10.7
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -704,7 +704,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-g4.10.7jai
+          images: bdsim/alma9-g4.10.7jai
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -733,7 +733,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-g4.11.0
+          images: bdsim/alma9-g4.11.0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -762,7 +762,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-g4.11.1
+          images: bdsim/alma9-g4.11.1
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -791,7 +791,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sboogert/alma9-g4.11.2
+          images: bdsim/alma9-g4.11.2
 
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
