@@ -1,4 +1,4 @@
-FROM sboogert/centos7-base
+FROM bdsim/centos7-base
 
 # CLHEP
 RUN wget https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.1.tgz && \
