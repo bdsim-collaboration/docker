@@ -31,3 +31,6 @@ RUN wget https://root.cern/download/root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13
 RUN tar -xzvf root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
 RUN rm -rf  root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
 RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
+
+# HDF5
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
