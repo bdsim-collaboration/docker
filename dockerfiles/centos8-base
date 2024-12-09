@@ -38,4 +38,4 @@ RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
 #RUN yum -y install HepMC3-rootIO-devel
 
 # HDF5
-RUN yum	-y install hdf5-devel.x86_64
+RUN yum	--nobest -y install hdf5-devel.x86_64
