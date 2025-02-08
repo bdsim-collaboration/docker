@@ -37,9 +37,9 @@ RUN rm -rfv root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz
 RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
     
 # HEPMC3
-RUN yum -y install root6
-RUN yum -y install HepMC3-rootIO
-RUN yum -y install HepMC3-rootIO-devel
+# RUN yum -y install root6
+# RUN yum -y install HepMC3-rootIO
+# RUN yum -y install HepMC3-rootIO-devel 
 
 # HDF5
 RUN yum -y install hdf5-devel.x86_64
