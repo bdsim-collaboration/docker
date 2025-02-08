@@ -280,6 +280,35 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+  ubuntu20-g4-11-3:
+    needs: [ubuntu20_base]
+    name: Push Ubuntu20 g4.11.3 docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
+          password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: bdsim/ubuntu20-g4.11.3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./dockerfiles/ubuntu20-g4.11.3
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
   ubuntu22-g4-10-7:
     needs: [ubuntu22_base]  
     name: Push Ubuntu22 g4.10.7 docker image to Docker Hub
@@ -392,6 +421,35 @@ jobs:
         with:
           context: .
           file: ./dockerfiles/ubuntu22-g4.11.2
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  ubuntu22-g4-11-3:
+    needs: [ubuntu22_base]
+    name: Push Ubuntu22 g4.11.3 docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
+          password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: bdsim/ubuntu22-g4.11.3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./dockerfiles/ubuntu22-g4.11.3
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -512,6 +570,35 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+  ubuntu24-g4-11-3:
+    needs: [ubuntu24_base]
+    name: Push Ubuntu24 g4.11.3 docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
+          password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: bdsim/ubuntu24-g4.11.3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./dockerfiles/ubuntu24-g4.11.3
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
   centos8-g4-10-7:
     needs: [centos8_base]
     name: Push Centos8 g4.10.7 docker image to Docker Hub
@@ -624,6 +711,35 @@ jobs:
         with:
           context: .
           file: ./dockerfiles/centos8-g4.11.2
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  centos8-g4-11-3:
+    needs: [centos8_base]
+    name: Push Centos8 g4.11.3 docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          Username: ${{ vars.BOOGERT_DOCKER_USERNAME }}
+          password: ${{ secrets.BOOGERT_DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: bdsim/centos8-g4.11.3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./dockerfiles/centos8-g4.11.3
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
