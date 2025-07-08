@@ -29,3 +29,6 @@ RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
 
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
+
+# Graphics deps
+RUN apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools xterm
