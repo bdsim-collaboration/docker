@@ -1,0 +1,15 @@
+FROM almalinux:9
+
+WORKDIR /tmp
+
+RUN dnf update -y
+RUN dnf groupinstall -y "Development Tools"
+RUN dnf install -y wget git go gcc make libseccomp libseccomp-devel squashfs-tools cryptsetup python3
+
+RUN export VER=1.4.2  && \
+    wget https://github.com/apptainer/apptainer/releases/download/v${VER}/apptainer-${VER}.tar.gz && \ 
+    tar zxf apptainer-${VER}.tar.gz && \
+    cd apptainer-${VER} && \
+    ./mconfig --with-suid && \ 
+    make -C builddir && \ 
+    make -C builddir install
