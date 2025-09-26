@@ -62,7 +62,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        base: [centos8-base, alma9-base, ubuntu20-base, ubuntu22-base, ubuntu24-base]
+        base: [centos8, alma9, ubuntu20, ubuntu22, ubuntu24]
         geant4: [g4.10.7, g4.11.0, g4.11.1, g4.11.2, g4.11.3]
 
     steps:
