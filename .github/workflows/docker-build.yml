@@ -5,7 +5,11 @@ on:
   release:
     types:
       - published
-  
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bases:
     name: Base images
@@ -14,8 +18,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        container: [centos8-base, alma9-base, ubuntu20-base, ubuntu22-base, ubuntu24-base
-          alma9-apptainer]
+        container: [centos8-base, alma9-base, ubuntu20-base, ubuntu22-base, ubuntu24-base,
+                    alma9-apptainer]
 
     steps:
       - name: Dump job context
