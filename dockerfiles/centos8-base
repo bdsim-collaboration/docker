@@ -22,10 +22,10 @@ RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
 RUN yum -y install freeglut-devel
 
 # Python
-RUN yum -y install python3-pip python3
+RUN dnf install -y python38 python38-devel python38-pip
 
 # python packages
-RUN pip3 install scipy matplotlib numpy ipython pybind11
+RUN python3.8 -m pip install scipy matplotlib numpy ipython pybind11
 
 # Qt5 
 RUN yum -y install qt5-qtbase-devel 
