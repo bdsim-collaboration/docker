@@ -23,7 +23,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui w
 
 # python packages
 RUN python3 -m venv /tmp/venv-bdsim
-RUN /tmp/venv-bdsim/bin/pip install scipy matplotlib numpy ipython 
+RUN /tmp/venv-bdsim/bin/pip install scipy matplotlib numpy ipython pybind11
 
 # ROOT
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev

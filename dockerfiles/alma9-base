@@ -23,6 +23,9 @@ RUN yum -y install freeglut-devel
 # Python
 RUN yum -y install python3-pip python3
 
+# python packages
+RUN pip3 install scipy matplotlib numpy ipython pybind11
+
 # Qt5 
 RUN yum -y install qt5-qtbase-devel
 

@@ -14,11 +14,12 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt -y install build-essential
 
 # required packages
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget xorg-dev freeglut3-dev qt5-default python2.7-dev libssl-dev liblz4-dev git \
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget \
+    xorg-dev freeglut3-dev qt5-default python2.7-dev libssl-dev liblz4-dev git \
     libxerces-c-dev bison flex python3-pip python-tk x11vnc xvfb fvwm libxxhash-dev
 
 # python packages
-RUN pip3 install scipy matplotlib numpy ipython
+RUN pip3 install scipy matplotlib numpy ipython pybind11
 
 # ROOT
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
@@ -32,3 +33,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
 
 # Graphics deps
 RUN apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools xterm
+
+# Upgrade CMAKE
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.5/cmake-3.27.5-linux-x86_64.sh && \
+    sh cmake-3.27.5-linux-x86_64.sh --skip-license --prefix=/usr/
