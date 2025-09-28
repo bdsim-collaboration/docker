@@ -1,11 +1,15 @@
 FROM ubuntu:focal
 
+ADD .github/patches/ubuntu-g4.11.0-Geant4PatchCache.cmake-patch /tmp/
+
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
 
 SHELL ["/bin/bash", "-c"]
 ENTRYPOINT ["/bin/bash"]
 
 WORKDIR /tmp
+
+RUN ls -l /tmp
 
 # start with more uptodate packages
 RUN apt-get update
