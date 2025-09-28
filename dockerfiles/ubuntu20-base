@@ -35,5 +35,5 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
 RUN apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools xterm
 
 # Upgrade CMAKE
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.5/cmake-3.27.5-linux-x86_64.sh && \
-    sh cmake-3.27.5-linux-x86_64.sh --skip-license --prefix=/usr/
+RUN wget https://github.com/Kitware/CMake/releases/download/v4.1.1/cmake-4.1.1-linux-x86_64.sh && \
+    sh cmake-4.1.1-linux-x86_64.sh  --skip-license --prefix=/usr/
