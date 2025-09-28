@@ -1,6 +1,6 @@
 FROM ubuntu:focal
 
-ADD .github/patches/ubuntu-g4.11.0-Geant4PatchCache.cmake-patch /tmp/
+ADD .github/patches/ubuntu20-g4.11.0-Geant4PackageCache.cmake-patch /tmp/
 
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
 
