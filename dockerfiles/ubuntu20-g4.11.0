@@ -18,4 +18,4 @@ RUN git clone https://gitlab.cern.ch/geant4/geant4.git &&\
     echo 'source /usr/local/bin/geant4.sh' >> ~/.bashrc
 
 # Apply expat patch to geant4 install
-RUN patch -p0 < /tmp/ubuntu20-g4.11.0-Geant4PackageCache.cmake-patch
+RUN patch -p5 -d /usr/local/lib/Geant4-11.0.4/ < /tmp/ubuntu20-g4.11.0-Geant4PackageCache.cmake-patch
