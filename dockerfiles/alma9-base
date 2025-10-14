@@ -3,7 +3,7 @@ FROM almalinux:9
 SHELL ["/bin/bash", "-c"]
 ENTRYPOINT ["/bin/bash"]
 
-WORKDIR /tmp
+WORKDIR /bdsim
 
 RUN yum -y install epel-release
 RUN yum -y install epel-next-release
@@ -37,7 +37,7 @@ RUN yum -y install which xxhash-libs tbb-devel
 RUN wget https://root.cern/download/root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz 
 RUN tar -xzvf root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz 
 RUN rm -rfv root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz 
-RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
+RUN echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
     
 # HEPMC3
 # RUN yum -y install root6
