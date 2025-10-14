@@ -26,7 +26,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
 RUN wget https://root.cern/download/root_v6.30.02.Linux-ubuntu20.04-x86_64-gcc9.4.tar.gz
 RUN tar -xzvf root_v6.30.02.Linux-ubuntu20.04-x86_64-gcc9.4.tar.gz
 RUN rm -rf root_v6.30.02.Linux-ubuntu20.04-x86_64-gcc9.4.tar.gz
-RUN echo 'source /tmp/root/bin/thisroot.sh' >> ~/.bashrc
+RUN echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
 
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
