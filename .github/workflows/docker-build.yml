@@ -67,7 +67,7 @@ jobs:
         exclude:
           - base: centos8
             geant4: g4.11.4
-          - os: ubuntu20
+          - base: ubuntu20
             geant4: g4.11.4
 
     steps:
