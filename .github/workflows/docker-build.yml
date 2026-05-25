@@ -64,6 +64,11 @@ jobs:
       matrix:
         base: [centos8, alma9, ubuntu20, ubuntu22, ubuntu24]
         geant4: [g4.10.7, g4.11.0, g4.11.1, g4.11.2, g4.11.3, g4.11.4]
+        exclude:
+          - base: centos8
+            geang4: g4.11.4
+          - os: ubuntu20
+            geang4: g4.11.4
 
     steps:
       - name: Check out the repo
