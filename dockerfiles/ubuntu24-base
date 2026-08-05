@@ -17,9 +17,9 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-cache search python qt5 qt6
 
 # required packages
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget \
-         xorg-dev freeglut3-dev qtbase5-dev qt5-qmake qt6-base-dev \
-	     python3 python3-pip python3-venv libssl-dev liblz4-dev git \
-         libxerces-c-dev bison flex x11vnc xvfb fvwm
+    xorg-dev freeglut3-dev qtbase5-dev qt5-qmake qt6-base-dev \
+    python3 python3-pip python3-venv libssl-dev liblz4-dev git \
+    libxerces-c-dev bison flex x11vnc xvfb fvwm
 
 # python packages
 RUN python3 -m venv /bdsim/venv-bdsim
@@ -27,10 +27,10 @@ RUN /bdsim/venv-bdsim/bin/pip install scipy matplotlib numpy ipython pybind11
 
 # ROOT
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
-RUN wget https://root.cern/download/root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
-RUN tar -xzvf root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
-RUN rm -rf  root_v6.32.00.Linux-ubuntu24.04-x86_64-gcc13.2.tar.gz
-RUN echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
+RUN wget https://root.cern/download/root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
+    tar -xzvf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
+    rm -rf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
+    echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
 
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev

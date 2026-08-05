@@ -17,19 +17,19 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-cache search python qt5 qt6
 
 # required packages
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui wget \
-         xorg-dev freeglut3-dev qtbase5-dev qt5-qmake qt6-base-dev \
-	 python-is-python3 libssl-dev liblz4-dev git \
-         libxerces-c-dev bison flex python3-pip python-tk x11vnc xvfb fvwm
+    xorg-dev freeglut3-dev qtbase5-dev qt5-qmake qt6-base-dev \
+    python-is-python3 libssl-dev liblz4-dev git \
+    libxerces-c-dev bison flex python3-pip python-tk x11vnc xvfb fvwm
 
 # python packages
 RUN pip3 install scipy matplotlib numpy ipython pybind11
 
 # ROOT
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
-RUN wget https://root.cern/download/root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
-RUN tar -xzvf root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
-RUN rm -rf root_v6.30.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
-RUN echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev && \
+    wget https://root.cern/download/root_v6.40.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz && \
+    tar -xzvf root_v6.40.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz && \
+    rm -rf root_v6.40.02.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz && \
+    echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
 
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev

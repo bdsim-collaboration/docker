@@ -21,10 +21,10 @@ RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
 RUN yum -y install freeglut-devel
 
 # Python
-RUN yum -y install python3.13 python3.13-pip python3.13-devel
+RUN yum -y install python3.12 python3.12-pip python3.12-devel
 
 # python packages
-RUN pip-3.13 install scipy matplotlib numpy ipython pybind11
+RUN pip-3.12 install scipy matplotlib numpy ipython pybind11
 
 # Qt5 
 RUN yum -y install qt5-qtbase-devel
@@ -33,14 +33,13 @@ RUN yum -y install qt5-qtbase-devel
 RUN yum -y install qt6-qtbase-devel 
 
 # ROOT
-RUN yum -y install which xxhash-libs tbb-devel
-RUN wget https://root.cern/download/root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz 
-RUN tar -xzvf root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz 
-RUN rm -rfv root_v6.30.02.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz 
-RUN echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
+RUN yum install -y xxhash-libs tbb-devel
+RUN wget https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz && \
+    tar -xzvf root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz && \
+    rm -rfv root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz && \   
+    echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
     
 # HEPMC3
-# RUN yum -y install root6
 # RUN yum -y install HepMC3-rootIO
 # RUN yum -y install HepMC3-rootIO-devel 
 
