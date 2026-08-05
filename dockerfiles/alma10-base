@@ -13,7 +13,7 @@ RUN yum -y install git make wget \
     openssl-devel bison flex boost-devel expat-devel
 
 # X11 
-RUN yum -y install xorg-x11-server-Xorg xorg-x11-xauth libX11-devel \
+RUN yum -y install xorg-x11-server-Xwayland xorg-x11-xauth libX11-devel \
     libXpm-devel libXft-devel libXext-devel libXmu-devel 
 
 # OpenGL (EGL GLX egl gl glu glx opengl xmesa)
@@ -43,4 +43,4 @@ RUN wget https://root.cern/download/root_v6.40.02.Linux-almalinux10.2-x86_64-gcc
 # RUN yum -y install HepMC3-rootIO-devel 
 
 # HDF5
-RUN yum -y install hdf5-devel.x86_64
+# RUN yum -y install hdf5-devel
