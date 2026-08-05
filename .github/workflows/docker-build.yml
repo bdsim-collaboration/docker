@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        container: [alma9-base, ubuntu24-base, alma9-apptainer]
+        container: [alma9-base, alma10-base, ubuntu24-base, alma9-apptainer]
 
     steps:
       - name: Dump job context
