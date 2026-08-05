@@ -6,7 +6,6 @@ ENTRYPOINT ["/bin/bash"]
 WORKDIR /bdsim
 
 RUN yum -y install epel-release
-RUN yum -y install epel-next-release
 
 RUN yum -y install git make wget \
     gcc gcc-c++ gcc-gfortran \
