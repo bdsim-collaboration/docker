@@ -33,7 +33,7 @@ RUN yum -y install qt5-qtbase-devel
 RUN yum -y install qt6-qtbase-devel 
 
 # ROOT
-RUN yum install -y xxhash-libs tbb-devel
+RUN yum install -y xxhash-libs tbb-devel gsl-devel
 RUN wget https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz && \
     tar -xzvf root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz && \
     rm -rfv root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz && \   
