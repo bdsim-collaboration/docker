@@ -44,4 +44,4 @@ RUN wget https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc1
 # RUN yum -y install HepMC3-rootIO-devel 
 
 # HDF5
-RUN yum -y install hdf5-devel.x86_64
+RUN yum -y install hdf5-devel
