@@ -33,6 +33,9 @@ RUN wget https://root.cern/download/root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13
     rm -rf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
 
+# HEPMC3
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhepmc3-dev
+
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
 

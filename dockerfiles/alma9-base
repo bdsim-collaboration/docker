@@ -41,8 +41,7 @@ RUN wget https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc1
     echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
     
 # HEPMC3
-# RUN yum -y install HepMC3-rootIO
-# RUN yum -y install HepMC3-rootIO-devel 
+RUN yum -y install HepMC3-devel
 
 # HDF5
 RUN yum -y install hdf5-devel
