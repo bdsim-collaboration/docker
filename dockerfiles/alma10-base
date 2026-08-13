@@ -46,8 +46,7 @@ RUN source /bdsim/root/bin/thisroot.sh &&\
     tar -xzf HepMC3-3.3.1.tar.gz                   &&\
     mkdir hepmc3-build                             &&\
     cd hepmc3-build                                &&\
-    cmake -DCMAKE_INSTALL_PREFIX=../hepmc3-install   \
-          -DHEPMC3_ENABLE_ROOTIO:BOOL=ON             \
+    cmake -DHEPMC3_ENABLE_ROOTIO:BOOL=ON             \
           -DHEPMC3_ENABLE_PROTOBUFIO:BOOL=OFF        \
           -DHEPMC3_ENABLE_TEST:BOOL=OFF              \
           -DHEPMC3_INSTALL_INTERFACES:BOOL=ON        \
