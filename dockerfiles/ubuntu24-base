@@ -28,16 +28,33 @@ RUN /bdsim/venv-bdsim/bin/pip install scipy matplotlib numpy ipython pybind11
 
 # ROOT
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
-RUN wget https://root.cern/download/root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
-    tar -xzvf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
+RUN wget -q https://root.cern/download/root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
+    tar -xzf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     rm -rf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
 
 # HEPMC3
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhepmc3-dev
+# RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhepmc3-dev
+RUN source /bdsim/root/bin/thisroot.sh &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -y install libvdt-dev &&\
+    wget -q http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.3.1.tar.gz &&\
+    tar -xzf HepMC3-3.3.1.tar.gz                   &&\
+    mkdir hepmc3-build                             &&\
+    cd hepmc3-build                                &&\
+    cmake -DCMAKE_INSTALL_PREFIX=../hepmc3-install   \
+          -DHEPMC3_ENABLE_ROOTIO:BOOL=ON             \
+          -DHEPMC3_ENABLE_PROTOBUFIO:BOOL=OFF        \
+          -DHEPMC3_ENABLE_TEST:BOOL=OFF              \
+          -DHEPMC3_INSTALL_INTERFACES:BOOL=ON        \
+          -DHEPMC3_BUILD_STATIC_LIBS:BOOL=OFF        \
+          -DHEPMC3_BUILD_DOCS:BOOL=OFF               \
+          -DHEPMC3_ENABLE_PYTHON:BOOL=OFF            \
+          ../HepMC3-3.3.1                          &&\
+      make -j4                                     &&\
+      make install
 
 # HDF5
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev libhdf5-103-1t64 libhdf5-cpp-103-1t64
 
 # Graphics deps
 RUN apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools xterm
