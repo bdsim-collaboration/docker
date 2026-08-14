@@ -58,4 +58,4 @@ RUN source /bdsim/root/bin/thisroot.sh &&\
       make install
 
 # HDF5
-# RUN yum -y install hdf5-devel
+RUN yum -y install hdf5-devel
