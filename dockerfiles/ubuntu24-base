@@ -50,7 +50,8 @@ RUN source /bdsim/root/bin/thisroot.sh &&\
           -DHEPMC3_ENABLE_PYTHON:BOOL=OFF            \
           ../HepMC3-3.3.1                          &&\
       make -j4                                     &&\
-      make install
+      make install                                 &&\
+      rm -rf HepMC3-3.3.1.tar.gz HepMC3-3.3.1 hepmc3-build
 
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev libhdf5-103-1t64 libhdf5-cpp-103-1t64

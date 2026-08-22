@@ -55,7 +55,8 @@ RUN source /bdsim/root/bin/thisroot.sh &&\
           -DHEPMC3_ENABLE_PYTHON:BOOL=OFF            \
           ../HepMC3-3.3.1                          &&\
       make -j4                                     &&\
-      make install
+      make install                                 &&\
+      rm -rf HepMC3-3.3.1.tar.gz HepMC3-3.3.1 hepmc3-build
 
 # HDF5
 RUN yum -y install hdf5-devel
