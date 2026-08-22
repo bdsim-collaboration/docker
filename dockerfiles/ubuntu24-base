@@ -31,7 +31,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
 RUN wget -q https://root.cern/download/root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     tar -xzf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     rm -rf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
-    echo 'source /bdsim/root/bin/thisroot.sh' >> ~/.bashrc
+    echo 'source /bdsim/root/bin/thisroot.sh' >> /bdsim/setup.sh
 
 # HEPMC3
 # RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhepmc3-dev
