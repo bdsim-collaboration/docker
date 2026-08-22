@@ -12,4 +12,4 @@ RUN git clone -b v11.1.3-bdsim --single-branch https://github.com/bdsim-collabor
     cmake ../geant4 -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_GDML=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_SYSTEM_CLHEP=ON -DGEANT4_USE_RAYTRACER_X11=ON -DGEANT4_USE_QT=ON &&\
     make -j4 && make install && cd ../ &&\
     rm -rfv geant4-build geant4 &&\
-    echo 'source /usr/local/bin/geant4.sh' >> ~/.bashrc
+    echo 'source /usr/local/bin/geant4.sh' >> /bdsim/setup.sh
