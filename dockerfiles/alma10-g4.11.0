@@ -6,7 +6,8 @@ RUN wget https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.1.tgz && \
     sed -i '1i #include <cstdint>' 2.4.5.1/CLHEP/Random/Random/RanluxppEngine.h && \
     sed -i '1i #include <cstdint>' 2.4.5.1/CLHEP/Random/Random/MixMaxRng.h && \
     mkdir clhep-build && cd clhep-build && cmake ../2.4.5.1/CLHEP/ && \
-    make -j4 && make install && cd ../ && rm -rfv 2.4.5.1 clhep-build
+    make -j4 && make install && cd ../ && rm -rfv 2.4.5.1 clhep-build &&\
+    echo 'CLHEP install dir : /usr/local' >> /bdsim/README
 
 # Geant4
 RUN git clone -b v11.0.4-bdsim --single-branch https://github.com/bdsim-collaboration/geant4.git &&\
@@ -14,4 +15,5 @@ RUN git clone -b v11.0.4-bdsim --single-branch https://github.com/bdsim-collabor
     cmake ../geant4 -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_GDML=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_SYSTEM_CLHEP=ON -DGEANT4_USE_RAYTRACER_X11=ON -DGEANT4_USE_QT=ON && make -j6 &&\
     make -j4 install && cd ../ &&\
     rm -rfv geant4-build geant4 &&\
-    echo 'source /usr/local/bin/geant4.sh' >> /bdsim/setup.sh
+    echo 'source /usr/local/bin/geant4.sh' >> /bdsim/setup.sh &&\
+    echo 'Geant4 install dir : /usr/local' >> /bdsim/README

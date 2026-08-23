@@ -4,7 +4,8 @@ FROM bdsim/ubuntu24-base
 RUN wget https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.6.2.tgz && \
     tar -xf clhep-2.4.6.2.tgz && rm -rf clhep-2.4.6.2.tgz && \
     mkdir clhep-build && cd clhep-build && cmake ../2.4.6.2/CLHEP/ && \
-    make -j4 && make install && cd ../ && rm -rfv 2.4.6.2 clhep-build
+    make -j4 && make install && cd ../ && rm -rfv 2.4.6.2 clhep-build &&\
+    echo 'CLHEP install dir : /usr/local' >> /bdsim/README
 
 # Geant4
 RUN git clone -b v11.0.4-bdsim --single-branch https://github.com/bdsim-collaboration/geant4.git &&\
@@ -13,4 +14,6 @@ RUN git clone -b v11.0.4-bdsim --single-branch https://github.com/bdsim-collabor
     make -j4 && make install && cd ../ &&\
     rm -rfv geant4-build geant4 &&\
     echo 'source /usr/local/bin/geant4.sh' >> /bdsim/setup.sh && \
-    rm -rfv /usr/local/lib/Geant4-11.0.4/Geant4PackageCache.cmake
+    rm -rfv /usr/local/lib/Geant4-11.0.4/Geant4PackageCache.cmake && \
+    echo 'Geant4 install dir : /usr/local' >> /bdsim/README
+

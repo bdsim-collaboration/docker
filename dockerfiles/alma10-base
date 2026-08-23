@@ -24,7 +24,8 @@ RUN yum -y install freeglut-devel
 RUN yum -y install python3 python3-pip python3-devel
 
 # python packages
-RUN pip-3 install scipy matplotlib numpy ipython pybind11
+RUN pip-3 install scipy matplotlib numpy ipython pybind11 && \
+    echo 'python : system default' >> /bdsim/README
 
 # Qt5 
 RUN yum -y install qt5-qtbase-devel
@@ -37,7 +38,9 @@ RUN yum install -y xxhash-libs tbb-devel gsl-devel
 RUN wget -q https://root.cern/download/root_v6.40.02.Linux-almalinux10.2-x86_64-gcc14.3.tar.gz && \
     tar -xzf root_v6.40.02.Linux-almalinux10.2-x86_64-gcc14.3.tar.gz && \
     rm -rfv root_v6.40.02.Linux-almalinux10.2-x86_64-gcc14.3.tar.gz&& \   
-    echo 'source /bdsim/root/bin/thisroot.sh' >> /bdsim/setup.sh
+    echo 'source /bdsim/root/bin/thisroot.sh' >> /bdsim/setup.sh &&\
+    echo 'root install dir : /bdsim/root' >> /bdsim/README
+
     
 # HEPMC3
 # RUN yum -y install HepMC3-devel
@@ -54,9 +57,12 @@ RUN source /bdsim/root/bin/thisroot.sh &&\
           -DHEPMC3_BUILD_DOCS:BOOL=OFF               \
           -DHEPMC3_ENABLE_PYTHON:BOOL=OFF            \
           ../HepMC3-3.3.1                          &&\
-      make -j4                                     &&\
-      make install                                 &&\
-      rm -rf HepMC3-3.3.1.tar.gz HepMC3-3.3.1 hepmc3-build
+    make -j4                                     &&\
+    make install                                 &&\
+    cd ../                                       &&\
+    rm -rf HepMC3-3.3.1.tar.gz HepMC3-3.3.1 hepmc3-build &&\
+    echo 'HepMC3 install dir : /usr/local' >> /bdsim/README
+
 
 # HDF5
 RUN yum -y install hdf5-devel

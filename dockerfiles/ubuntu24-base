@@ -25,14 +25,16 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake cmake-curses-gui w
 # python packages
 RUN python3 -m venv /bdsim/venv-bdsim && \
     /bdsim/venv-bdsim/bin/pip install scipy matplotlib numpy ipython pybind11 && \
-    echo 'source /bdsim/venv-bdsim/bin/activate' >> /bdsim/setup.sh
+    echo 'source /bdsim/venv-bdsim/bin/activate' >> /bdsim/setup.sh && \
+    echo 'python : /bdsim/venv-bdsim/bin/activate' >> /bdsim/README
 
 # ROOT
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libxxhash-dev libtbb-dev
 RUN wget -q https://root.cern/download/root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     tar -xzf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
     rm -rf root_v6.40.02.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz && \
-    echo 'source /bdsim/root/bin/thisroot.sh' >> /bdsim/setup.sh
+    echo 'source /bdsim/root/bin/thisroot.sh' >> /bdsim/setup.sh && \
+    echo 'root install dir : /bdsim/root' >> /bdsim/README
 
 # HEPMC3
 # RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhepmc3-dev
@@ -50,9 +52,11 @@ RUN source /bdsim/root/bin/thisroot.sh &&\
           -DHEPMC3_BUILD_DOCS:BOOL=OFF               \
           -DHEPMC3_ENABLE_PYTHON:BOOL=OFF            \
           ../HepMC3-3.3.1                          &&\
-      make -j4                                     &&\
-      make install                                 &&\
-      rm -rf HepMC3-3.3.1.tar.gz HepMC3-3.3.1 hepmc3-build
+    make -j4                                       &&\
+    make install                                   &&\
+    cd ../                                         &&\
+    rm -rf HepMC3-3.3.1.tar.gz HepMC3-3.3.1 hepmc3-build && \
+    echo 'HepMC3 install dir : /usr/local' >> /bdsim/README
 
 # HDF5
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install libhdf5-dev libhdf5-103-1t64 libhdf5-cpp-103-1t64
