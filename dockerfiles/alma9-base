@@ -25,8 +25,8 @@ RUN yum -y install freeglut-devel
 RUN yum -y install python3.12 python3.12-pip python3.12-devel
 
 # python packages
-RUN pip-3.12 install scipy matplotlib numpy ipython pybind11 && \
-    python3.12 -m venv /bdsim/venv-bdsim && \
+RUN python3.12 -m venv /bdsim/venv-bdsim && \
+    /bdsim/venv-bdsim/bin/pip install scipy matplotlib numpy ipython pybind11 && \
     echo 'source /bdsim/venv-bdsim/bin/activate' >> /bdsim/setup.sh && \
     echo 'python : /bdsim/venv-bdsim/bin/activate' >> /bdsim/README
 
