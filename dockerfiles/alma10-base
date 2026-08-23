@@ -25,6 +25,8 @@ RUN yum -y install python3 python3-pip python3-devel
 
 # python packages
 RUN pip-3 install scipy matplotlib numpy ipython pybind11 && \
+    python3.12 -m venv /bdsim/venv-bdsim && \
+    echo 'source /bdsim/venv-bdsim/bin/activate' >> /bdsim/setup.sh && \
     echo 'python : system default' >> /bdsim/README
 
 # Qt5 
